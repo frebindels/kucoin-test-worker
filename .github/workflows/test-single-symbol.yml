@@ -15,10 +15,10 @@ jobs:
     
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: '18'
     
@@ -34,7 +34,7 @@ jobs:
         if [ -d "./output" ]; then
           echo "Output directory created: ✅"
           find ./output -type f -name "*.zip" | head -5 | while read file; do
-            echo "Downloaded: $(basename "$file") ($(stat -f%z "$file" 2>/dev/null || stat -c%s "$file") bytes)"
+            echo "Downloaded: $(basename "$file") ($(stat -c%s "$file") bytes)"
           done
           if [ -f "./output/BTCUSDT/test_summary.json" ]; then
             echo "=== SUMMARY ==="
@@ -45,7 +45,7 @@ jobs:
         fi
     
     - name: Upload test results
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: btcusdt-test-results
         path: ./output/
