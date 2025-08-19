@@ -1,0 +1,25 @@
+{
+  "symbol": "BTCUSDT",
+  "testCompletedAt": "2025-08-19T06:01:41.165Z",
+  "filesAttempted": 3,
+  "filesDownloaded": 3,
+  "totalBytes": 10364322,
+  "testResults": [
+    {
+      "filename": "BTCUSDT-trades-2025-01-01.zip",
+      "bytes": 1875864,
+      "status": "success"
+    },
+    {
+      "filename": "BTCUSDT-trades-2025-01-02.zip",
+      "bytes": 3404507,
+      "status": "success"
+    },
+    {
+      "filename": "BTCUSDT-trades-2025-01-03.zip",
+      "bytes": 5083951,
+      "status": "success"
+    }
+  ],
+  "status": "success"
+}

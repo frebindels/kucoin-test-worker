@@ -1,0 +1,13 @@
+{
+  "name": "kucoin-data-test",
+  "version": "1.0.0",
+  "description": "KuCoin data collection test for GitHub Actions",
+  "main": "github_worker_test.js",
+  "type": "module",
+  "scripts": {
+    "start": "node github_worker_test.js"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^4.3.2"
+  }
+}

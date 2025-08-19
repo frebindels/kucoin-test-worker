@@ -1,0 +1,53 @@
+name: Test Single Symbol Collection
+
+on:
+  workflow_dispatch:
+    inputs:
+      test_mode:
+        description: 'Test mode (always on for safety)'
+        required: true
+        default: 'true'
+
+jobs:
+  test-collection:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30  # Only 30 minutes for testing
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    
+    - name: Install dependencies
+      run: npm install
+    
+    - name: Run single symbol test
+      run: node simple_test_worker.js
+    
+    - name: Show test results
+      run: |
+        echo "=== TEST RESULTS ==="
+        if [ -d "./output" ]; then
+          echo "Output directory created: ✅"
+          find ./output -type f -name "*.zip" | head -5 | while read file; do
+            echo "Downloaded: $(basename "$file") ($(stat -f%z "$file" 2>/dev/null || stat -c%s "$file") bytes)"
+          done
+          if [ -f "./output/BTCUSDT/test_summary.json" ]; then
+            echo "=== SUMMARY ==="
+            cat ./output/BTCUSDT/test_summary.json
+          fi
+        else
+          echo "No output directory found ❌"
+        fi
+    
+    - name: Upload test results
+      uses: actions/upload-artifact@v3
+      with:
+        name: btcusdt-test-results
+        path: ./output/
+        retention-days: 3
+      if: always()
