@@ -1,0 +1,11 @@
+{
+  "symbol": "BTCUSDT",
+  "month": "2025-01",
+  "recordCount": 30000,
+  "createdAt": "2025-08-19T06:51:32.001Z",
+  "sourceFiles": [
+    "BTCUSDT-trades-BTCUSDT-trades-2025-01-01.csv",
+    "BTCUSDT-trades-BTCUSDT-trades-2025-01-02.csv",
+    "BTCUSDT-trades-BTCUSDT-trades-2025-01-03.csv"
+  ]
+}

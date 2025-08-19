@@ -1,0 +1,59 @@
+{
+  "symbol": "BTCUSDT",
+  "completedAt": "2025-08-19T06:51:32.029Z",
+  "pipeline": {
+    "filesAttempted": 3,
+    "filesVerified": 3,
+    "filesUnpacked": 3,
+    "parquetFilesCreated": 1
+  },
+  "totalBytes": 10364322,
+  "downloadResults": [
+    {
+      "filename": "BTCUSDT-trades-2025-01-01.zip",
+      "status": "verified",
+      "bytes": 1875864
+    },
+    {
+      "filename": "BTCUSDT-trades-2025-01-02.zip",
+      "status": "verified",
+      "bytes": 3404507
+    },
+    {
+      "filename": "BTCUSDT-trades-2025-01-03.zip",
+      "status": "verified",
+      "bytes": 5083951
+    }
+  ],
+  "unpackResults": [
+    {
+      "filename": "BTCUSDT-trades-2025-01-01.zip",
+      "success": true,
+      "csvFiles": [
+        "BTCUSDT-trades-BTCUSDT-trades-2025-01-01.csv"
+      ]
+    },
+    {
+      "filename": "BTCUSDT-trades-2025-01-02.zip",
+      "success": true,
+      "csvFiles": [
+        "BTCUSDT-trades-BTCUSDT-trades-2025-01-02.csv"
+      ]
+    },
+    {
+      "filename": "BTCUSDT-trades-2025-01-03.zip",
+      "success": true,
+      "csvFiles": [
+        "BTCUSDT-trades-BTCUSDT-trades-2025-01-03.csv"
+      ]
+    }
+  ],
+  "parquetResults": [
+    {
+      "month": "2025-01",
+      "success": true,
+      "parquetPath": "output\\BTCUSDT\\parquet\\BTCUSDT-2025-01.parquet"
+    }
+  ],
+  "status": "success"
+}
