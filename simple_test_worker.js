@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 /**
- * Simple Test Worker - Uses Known Working Files
- * Since we know BTCUSDT files exist, let's test with known file URLs
+ * Simple Test Worker - Keep the working version for basic testing
  */
 
 import fs from 'fs/promises';
@@ -12,7 +11,6 @@ import https from 'https';
 console.log('🧪 Simple Test Worker for GitHub Actions');
 console.log('🎯 Testing with known BTCUSDT files');
 
-// Test with files we know exist (from your downloads directory)
 const TEST_FILES = [
     'BTCUSDT-trades-2025-01-01.zip',
     'BTCUSDT-trades-2025-01-02.zip',
@@ -31,7 +29,6 @@ function log(message) {
     console.log(`[${timestamp}] ${message}`);
 }
 
-// Test downloading a known file
 async function testDownload(filename) {
     const url = CONFIG.baseUrl + filename;
     const outputPath = path.join(CONFIG.outputDir, CONFIG.symbol, filename);
@@ -43,7 +40,6 @@ async function testDownload(filename) {
             log(`📡 Response: ${response.statusCode} ${response.statusMessage}`);
             
             if (response.statusCode === 200) {
-                // File exists and can be downloaded
                 const fileStream = createWriteStream(outputPath);
                 let downloadedBytes = 0;
                 
@@ -86,12 +82,10 @@ async function runTest() {
     try {
         log(`🚀 Starting simple test for ${CONFIG.symbol}`);
         
-        // Create output directory
         const symbolDir = path.join(CONFIG.outputDir, CONFIG.symbol);
         await fs.mkdir(symbolDir, { recursive: true });
         log(`📁 Created output directory: ${symbolDir}`);
         
-        // Test downloading files
         const results = [];
         
         for (const filename of TEST_FILES) {
@@ -99,7 +93,6 @@ async function runTest() {
             results.push(result);
         }
         
-        // Create summary
         const successCount = results.filter(r => r.status === 'success').length;
         const totalBytes = results.reduce((sum, r) => sum + r.bytes, 0);
         

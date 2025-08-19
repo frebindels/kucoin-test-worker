@@ -1,13 +1,17 @@
 {
-  "name": "kucoin-data-test",
+  "name": "kucoin-enhanced-worker",
   "version": "1.0.0",
-  "description": "KuCoin data collection test for GitHub Actions",
-  "main": "simple_test_worker.js",
+  "description": "Enhanced KuCoin data collection with checksum validation and parquet creation",
+  "main": "enhanced_worker.js",
   "type": "module",
   "scripts": {
-    "start": "node simple_test_worker.js"
+    "start": "node enhanced_worker.js",
+    "test": "node simple_test_worker.js"
   },
   "dependencies": {
-    "fast-xml-parser": "^4.3.2"
+    "fast-xml-parser": "^4.3.2",
+    "parquetjs": "^0.11.2",
+    "yauzl": "^3.0.0",
+    "csv-parser": "^3.0.0"
   }
 }
